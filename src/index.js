@@ -1,5 +1,12 @@
-const sayHello = () => {
-  console.log("Hello, world");
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+
+class App extends Component {
+  render() {
+    return (
+      <div>hello, react!</div>
+    );
+  }
 }
 
-window.sayHello = sayHello;
+ReactDOM.render(<App/>, document.getElementById("root"));
