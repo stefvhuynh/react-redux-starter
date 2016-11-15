@@ -1,13 +1,15 @@
 import { List } from "immutable";
 import React, { PropTypes, PureComponent } from "react";
 import ImmutablePropTypes from "react-immutable-proptypes";
-import Todo from "../components/todo";
+import Todo from "./todo";
+import AddTodo from "./add-todo"
 
 class TodoList extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     todos: ImmutablePropTypes.list,
-    onTodoClick: PropTypes.func
+    onTodoClick: PropTypes.func,
+    onAddTodo: PropTypes.func
   }
 
   static defaultProps = {
@@ -17,10 +19,15 @@ class TodoList extends PureComponent {
   constructor(props) {
     super(props);
     this.onTodoClick = this.onTodoClick.bind(this);
+    this.onAddTodo = this.onAddTodo.bind(this);
   }
 
   onTodoClick(index) {
     this.props.onTodoClick && this.props.onTodoClick(index);
+  }
+
+  onAddTodo(todoName) {
+    this.props.onAddTodo && this.props.onAddTodo(todoName);
   }
 
   render() {
@@ -41,6 +48,7 @@ class TodoList extends PureComponent {
       <div>
         <h1>{`${this.props.name}:`}</h1>
         <ul>{todosListItems}</ul>
+        <AddTodo onAddTodo={this.onAddTodo}/>
       </div>
     );
   }

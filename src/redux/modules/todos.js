@@ -13,7 +13,9 @@ const initialState = List([
 const todos = (state = initialState, action = {}) => {
   switch (action.type) {
     case ADD_TODO:
-      return state.push(action.payload);
+      return state.push(
+        Map({ name: action.payload, completed: false })
+      );
     case TOGGLE_TODO:
       return state.updateIn(
         [action.payload, "completed"],
@@ -26,8 +28,8 @@ const todos = (state = initialState, action = {}) => {
 export default todos;
 
 // Action creators
-export const addTodo = (todo) => {
-  return { type: ADD_TODO, payload: todo };
+export const addTodo = (todoName) => {
+  return { type: ADD_TODO, payload: todoName };
 };
 export const toggleTodo = (index) => {
   return { type: TOGGLE_TODO, payload: index };

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import TodoList from "../components/todo-list";
-import { getTodos, toggleTodo } from "../redux/modules/todos";
+import { addTodo, getTodos, toggleTodo } from "../redux/modules/todos";
 
 const TodoListContainer = connect(
   (state) => {
@@ -11,7 +11,8 @@ const TodoListContainer = connect(
   },
   (dispatch) => {
     return {
-      onTodoClick: (index) => dispatch(toggleTodo(index))
+      onTodoClick: (index) => dispatch(toggleTodo(index)),
+      onAddTodo: (todoName) => dispatch(addTodo(todoName))
     };
   }
 )(TodoList);
