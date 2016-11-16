@@ -7,19 +7,21 @@ class AddTodo extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.onTodoNameChange = this.onTodoNameChange.bind(this);
-    this.onAddClick = this.onAddClick.bind(this);
-    this.state = { todoName: "" }
+    this.handleTodoNameChange = this.handleTodoNameChange.bind(this);
+    this.handleAddClick = this.handleAddClick.bind(this);
+    this.state = { todoName: "" };
   }
 
-  onTodoNameChange(event) {
+  handleTodoNameChange(event) {
     event.preventDefault();
     this.setState({ todoName: event.currentTarget.value });
   }
 
-  onAddClick(event) {
+  handleAddClick(event) {
     event.preventDefault();
-    this.props.onAddTodo && this.props.onAddTodo(this.state.todoName);
+    if (this.props.onAddTodo) {
+      this.props.onAddTodo(this.state.todoName);
+    }
     this.setState({ todoName: "" });
   }
 
@@ -29,9 +31,9 @@ class AddTodo extends PureComponent {
         <input
           type="text"
           value={this.state.todoName}
-          onChange={this.onTodoNameChange}
+          onChange={this.handleTodoNameChange}
         />
-        <button onClick={this.onAddClick}>Add</button>
+        <button onClick={this.handleAddClick}>Add</button>
       </div>
     );
   }

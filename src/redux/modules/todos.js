@@ -10,22 +10,22 @@ const initialState = List([
   Map({ name: "learn redux", completed: false }),
   Map({ name: "learn immutable", completed: false })
 ]);
-const todos = (state = initialState, action = {}) => {
+const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
-    case ADD_TODO:
-      return state.push(
-        Map({ name: action.payload, completed: false })
-      );
-    case TOGGLE_TODO:
-      return state.updateIn(
-        [action.payload, "completed"],
-        (completed) => !completed
-      );
-    default:
-      return state;
+  case ADD_TODO:
+    return state.push(
+      Map({ name: action.payload, completed: false })
+    );
+  case TOGGLE_TODO:
+    return state.updateIn(
+      [action.payload, "completed"],
+      (completed) => !completed
+    );
+  default:
+    return state;
   }
 };
-export default todos;
+export default { todos: reducer };
 
 // Action creators
 export const addTodo = (todoName) => {
@@ -34,7 +34,6 @@ export const addTodo = (todoName) => {
 export const toggleTodo = (index) => {
   return { type: TOGGLE_TODO, payload: index };
 };
-  
 
 // Selectors
 export const getTodos = (state) => state.todos;

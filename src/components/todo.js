@@ -2,20 +2,22 @@ import React, { PropTypes, PureComponent } from "react";
 
 class Todo extends PureComponent {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    index: PropTypes.number,
     completed: PropTypes.bool,
+    index: PropTypes.number,
+    name: PropTypes.string.isRequired,
     onClick: PropTypes.func
   }
 
   constructor(props) {
     super(props);
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  onClick(event) {
+  handleClick(event) {
     event.preventDefault();
-    this.props.onClick && this.props.onClick(this.props.index);
+    if (this.props.onClick) {
+      this.props.onClick(this.props.index);
+    }
   }
 
   render() {
@@ -24,7 +26,7 @@ class Todo extends PureComponent {
     ) : null;
 
     return (
-      <div onClick={this.onClick}>
+      <div onClick={this.handleClick}>
         <h3>{this.props.name}</h3>
         {completed}
       </div>
