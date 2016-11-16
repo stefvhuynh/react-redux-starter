@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from "react";
+import Radium from "radium";
 
 class Todo extends PureComponent {
   static propTypes = {
@@ -21,17 +22,27 @@ class Todo extends PureComponent {
   }
 
   render() {
-    const completed = this.props.completed ? (
-      <small>Completed!</small>
-    ) : null;
-
     return (
-      <div onClick={this.handleClick}>
+      <div
+        style={[styles.base, this.props.completed ? styles.completed : {}]}
+        onClick={this.handleClick}
+      >
         <h3>{this.props.name}</h3>
-        {completed}
       </div>
     );
   }
 }
 
-export default Todo;
+export default Radium(Todo);
+
+const styles = {
+  base: {
+    cursor: "pointer",
+    ":hover": {
+      background: "yellow"
+    }
+  },
+  completed: {
+    textDecoration: "line-through",
+  }
+};
