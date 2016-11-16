@@ -14,11 +14,11 @@ const reducer = (state = initialState, action = {}) => {
   switch (action.type) {
   case ADD_TODO:
     return state.push(
-      Map({ name: action.payload, completed: false })
+      Map({ name: action.payload.name, completed: false })
     );
   case TOGGLE_TODO:
     return state.updateIn(
-      [action.payload, "completed"],
+      [action.payload.index, "completed"],
       (completed) => !completed
     );
   default:
@@ -28,11 +28,11 @@ const reducer = (state = initialState, action = {}) => {
 export default { todos: reducer };
 
 // Action creators
-export const addTodo = (todoName) => {
-  return { type: ADD_TODO, payload: todoName };
+export const addTodo = (name) => {
+  return { type: ADD_TODO, payload: { name } };
 };
 export const toggleTodo = (index) => {
-  return { type: TOGGLE_TODO, payload: index };
+  return { type: TOGGLE_TODO, payload: { index } };
 };
 
 // Selectors
