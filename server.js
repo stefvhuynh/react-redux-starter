@@ -3,10 +3,12 @@ var express = require("express");
 var webpack = require("webpack");
 var devMiddleware = require("webpack-dev-middleware");
 var hotMiddleware = require("webpack-hot-middleware");
+var DashboardPlugin = require("webpack-dashboard\plugin");
 var webpackConfig = require("./webpack.config.js");
 
 var app = express();
 var compiler = webpack(webpackConfig);
+compiler.apply(new DashboardPlugin());
 
 app.use(devMiddleware(compiler, {
   noInfo: true,
