@@ -3,7 +3,7 @@ var express = require("express");
 var webpack = require("webpack");
 var devMiddleware = require("webpack-dev-middleware");
 var hotMiddleware = require("webpack-hot-middleware");
-var DashboardPlugin = require("webpack-dashboard\plugin");
+var DashboardPlugin = require("webpack-dashboard/plugin");
 var webpackConfig = require("./webpack.config.js");
 
 var app = express();
