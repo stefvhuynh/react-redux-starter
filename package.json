@@ -4,7 +4,7 @@
   "description": "Starter template for react apps",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dashboard -- node server.js",
     "lint": "eslint --ext .js src"
   },
   "author": "Stefan Huynh",
