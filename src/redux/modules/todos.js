@@ -67,7 +67,7 @@ export const todosSaga = function* () {
 };
 
 // Selectors
-export const getTodos = (state) => state.todos;
+export const getTodos = (state) => state.todos.get("todos");
 export const getCompletedTodos = createSelector(
   [getTodos],
   (todos) => todos.filter((todo) => todo.get("completed"))

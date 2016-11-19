@@ -4,6 +4,6 @@ export const fetchTodos = () => {
     { name: "learn redux", completed: false }
   ];
   return new Promise((resolve) => {
-    setTimeout(() => resolve(todos), 2000);
+    setTimeout(() => resolve({ status: 200, todos }), 2000);
   })
 };
