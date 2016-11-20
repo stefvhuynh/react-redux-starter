@@ -9,7 +9,12 @@ class TodoList extends PureComponent {
     name: PropTypes.string.isRequired,
     onAddTodo: PropTypes.func,
     onTodoClick: PropTypes.func,
-    todos: ImmutablePropTypes.list
+    todos: ImmutablePropTypes.listOf(
+      ImmutablePropTypes.mapContains({
+        name: PropTypes.string.isRequired,
+        completed: PropTypes.bool.isRequired
+      })
+    )
   }
 
   static defaultProps = {
