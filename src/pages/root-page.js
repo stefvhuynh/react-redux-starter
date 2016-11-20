@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import NavigationContainer from "../containers/navigation-container";
+import { NavigationContainer } from "../containers";
 
 class RootPage extends PureComponent {
   render() {

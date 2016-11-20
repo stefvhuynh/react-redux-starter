@@ -5,8 +5,7 @@ import { syncHistoryWithStore } from "react-router-redux";
 import store from "./redux/store";
 import routes from "./routes";
 import { requestTodos } from "./redux/modules/todos";
-import TodosPage from "./pages/todos-page";
-import RootPage from "./pages/root-page";
+import { RootPage, TodosPage } from "./pages";
 
 const history = syncHistoryWithStore(browserHistory, store);
 

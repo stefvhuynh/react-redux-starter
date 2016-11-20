@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import TodoListContainer from "../containers/todo-list-container";
+import { TodoListContainer } from "../containers";
 
 class TodosPage extends PureComponent {
   render() {
