@@ -5,7 +5,11 @@
 "rules":
   "new-cap": 0
   "max-len": ["error", 80]
+  "generator-star-spacing": ["error", { "before": false, "after": true  }]
+  "max-params": ["error", 4]
+  "import/order": 1
 
 "env":
   "browser": true,
-  "node": true
+  "node": true,
+  "jest": true
