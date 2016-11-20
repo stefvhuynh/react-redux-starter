@@ -1,7 +1,7 @@
 {
-  "name": "react-starter",
+  "name": "react-redux-starter",
   "version": "1.0.0",
-  "description": "Starter template for react apps",
+  "description": "Starter template for react and redux apps",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dashboard -- node server.js",
