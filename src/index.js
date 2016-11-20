@@ -3,7 +3,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./app";
 
-require("normalize.css");
+import "normalize.css";
 
 const rootEl = document.getElementById("root");
 
